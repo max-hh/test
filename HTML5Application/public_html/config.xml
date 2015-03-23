@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:gap = "http://phonegap.com/ns/1.0"
+        version = "0.0.1"
+    >
+
+    <name>Dn'deliver</name>
+
+    <gap:platform name="android" />
+
+    <feature name="http://api.phonegap.com/1.0/notification"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+</widget>
+
