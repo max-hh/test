@@ -13,7 +13,7 @@ and open the template in the editor.
 
     <gap:platform name="android" />
 
-    <feature name="http://api.phonegap.com/1.0/notification"/>
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/3.6.3/notification"/>
+    <feature name="http://api.phonegap.com/3.6.3/geolocation"/>
 </widget>
 
