@@ -17,7 +17,7 @@ function buildHash($password)
 function tryLogin($username, $password)
 {
         $password = buildHash($password);
-        $mysqli = mysqli_connect("db569329942.db.1and1.com","dbo569329942", "max1804", "db569329942");
+        $mysqli = mysqli_connect("db569329942.db.1and1.com","dbo569329942","max1804","db569329942");
 
 
         $result = $mysqli->query("SELECT username
@@ -36,7 +36,7 @@ function tryLogin($username, $password)
 function register($firstname, $lastname, $username, $password)
 
 {
-$mysqli = mysqli_connect("db569329942.db.1and1.com","dbo569329942", "max1804", "db569329942");
+$mysqli = mysqli_connect("db569329942.db.1and1.com","dbo569329942","max1804","db569329942");
 
          $sql_select =  $mysqli->query("SELECT username FROM user WHERE username='".$_POST["username"]."'");
 
