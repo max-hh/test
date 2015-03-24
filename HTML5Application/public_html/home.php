@@ -60,14 +60,6 @@ $_SESSION['firstname'] = $firstname;
      </div>
 
 
-     
-
-    <div class="main">
-    <iframe src='sum.php' width='50%' height='420' frameborder='0' scrolling='auto' name='fenster'>
-    </iframe>";
-    </div>";
-
-
     <div id='sidebar'>
     <table cellpadding='15'>
     <tr><td><a href='summary.php'>&Uuml;bersicht</a></td></tr>
@@ -76,12 +68,6 @@ $_SESSION['firstname'] = $firstname;
     <tr><td><a href='logout.php'>Logout</a></td></tr>
     </table>
     </div>
-
-
-
- 
-
-
 
         </body>
 </html>

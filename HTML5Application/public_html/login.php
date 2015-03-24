@@ -40,12 +40,12 @@ if(!isset($loggedIn)):
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script type="text/javascript">
 function chkFormular () {
-    if (document.log.username.value == "") {
+    if (document.log.username.value === "") {
     alert("Bitte gib deine E-Mail Adresse ein!");
     document.log.username.focus();
     return false;
   }
-   if (document.log.password.value == "") {
+   if (document.log.password.value === "") {
     alert("Bitte gib dein Passwort ein!");
     document.log.password.focus();
     return false;
@@ -61,7 +61,6 @@ function chkFormular () {
     <table cellpadding="5">
                 <tr><td align="center"><h1>LOG IN</h1></td></tr>
                 <tr><td><hr></td></tr>
-                <tr><td><?php if($loginFailed): ?><p>Der Login war nicht erfolgreich! Bitte &uuml;berpr&uuml;fe deine E-Mail und dein Passwort!</p><?php endif; ?></td></tr>
                 <form name="log" method="post" action="home.php" onsubmit="return chkFormular()"</form>
                 <tr><td><input type="text" name="username" value="" placeholder="E-Mail"></td></tr>
                 <tr><td><input type="password" name="password" value="" placeholder="Passwort"></td></tr>
