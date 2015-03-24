@@ -2,6 +2,32 @@
 error_reporting(E_ALL^E_NOTICE);
 require 'requiresLogin.php';
 include('userheader.php');
+
+$user = $_SESSION["username"];
+
+   $request = $mysqli->query("SELECT firstname FROM  user WHERE username='".$user."'");
+     while($row = mysqli_fetch_object($request))
+      {
+      $firstname = "$row->firstname";
+      }
+$_SESSION['firstname'] = $firstname;
+
+
+
+     $open_request = $mysqli->query("SELECT id FROM  temporary WHERE userkennungA='".$user."'");
+     $open =mysqli_num_rows($open_request);
+     $openrequest = "Offene Anfragen " .$open ."";
+     
+       $select_unread_messages = $mysqli->query("SELECT id FROM  message WHERE readit = 0 AND toUser='".$user."'");
+     $messages =mysqli_num_rows($select_unread_messages);
+ $select_unread_answer = $mysqli->query("SELECT id FROM  answer WHERE readit = 0 AND toUser='".$user."'");
+         $answere =mysqli_num_rows($select_unread_answer);
+         $num = $messages + $answer;
+
+
+    $nachrichten = "Nachrichten " .$num ."";
+    
+        $_SESSION['user']=$user;
 ?>
 
 <!DOCTYPE html>
@@ -22,61 +48,40 @@ include('userheader.php');
         </head>
 
         <body>
-   <?php
-
-$user = $_SESSION["username"];
-
-   $request = $mysqli->query("SELECT firstname FROM  user WHERE username='".$user."'");
-     while($row = mysqli_fetch_object($request))
-      {
-      $firstname = "$row->firstname";
-      }
-$_SESSION['firstname'] = $firstname;
+  
 
 
-
-     $open_request = $mysqli->query("SELECT id FROM  temporary WHERE userkennungA='".$user."'");
-     $open =mysqli_num_rows($open_request);
-     $openrequest = "Offene Anfragen " .$open ."";
-    echo "<div id='top'>";
-    echo "<div id='navi'>";
-    echo "<table cellpadding='15'>";
-    echo "<tr><td><a href='requests.php'>Deine Auftr&auml;ge</a></td><td><a href='tmarket.php'>Marktplatz</a></td><td><a href='auftrag.php'>Erstelle einen Auftrag</a></td></tr>";
-    echo "</table>";
-     echo "</div>";
-     echo "</div>";
+    <div id="top">
+    <div id="navi">
+    <table cellpadding='15'>
+    <tr><td><a href='requests.php'>Deine Auftr&auml;ge</a></td><td><a href='tmarket.php'>Marktplatz</a></td><td><a href='auftrag.php'>Erstelle einen Auftrag</a></td></tr>
+    </table>
+    </div>
+     </div>
 
 
-       $select_unread_messages = $mysqli->query("SELECT id FROM  message WHERE readit = 0 AND toUser='".$user."'");
-     $messages =mysqli_num_rows($select_unread_messages);
- $select_unread_answer = $mysqli->query("SELECT id FROM  answer WHERE readit = 0 AND toUser='".$user."'");
-         $answere =mysqli_num_rows($select_unread_answer);
-         $num = $messages + $answer;
+     
+
+    <div class="main">
+    <iframe src='sum.php' width='50%' height='420' frameborder='0' scrolling='auto' name='fenster'>
+    </iframe>";
+    </div>";
 
 
-    $nachrichten = "Nachrichten " .$num ."";
-
-     echo "<div class='main'>";
-    echo "<iframe src='sum.php' width='50%' height='420' frameborder='0' scrolling='auto' name='fenster'>";
-    echo "</iframe>";
-    echo "</div>";
-
-
-    echo "<div id='sidebar'>";
-    echo "<table cellpadding='15'>";
-    echo "<tr><td><a href='summary.php'>&Uuml;bersicht</a></td></tr>";
-    echo "<tr><td><a href='open.request.php'>$openrequest</a></td></tr>";
-    echo "<tr><td><a href='messageover.php'>$nachrichten</a></td></tr>";
-    echo "<tr><td><a href='logout.php'>Logout</a></td></tr>";
-    echo "</table>";
-    echo "</div>";
+    <div id='sidebar'>
+    <table cellpadding='15'>
+    <tr><td><a href='summary.php'>&Uuml;bersicht</a></td></tr>
+    <tr><td><a href='open.request.php'><?php echo $openrequest; ?></a></td></tr>
+    <tr><td><a href='messageover.php'><?php echo $nachrichten; ?></a></td></tr>
+    <tr><td><a href='logout.php'>Logout</a></td></tr>
+    </table>
+    </div>
 
 
 
-     $_SESSION['user']=$user;
+ 
 
 
-include('footer.php');
-?>
+
         </body>
 </html>
