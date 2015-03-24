@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+function chkFormular () {
+    if (document.log.username.value === "") {
+    alert("Bitte gib deine E-Mail Adresse ein!");
+    document.log.username.focus();
+    return false;
+  }
+   if (document.log.password.value === "") {
+    alert("Bitte gib dein Passwort ein!");
+    document.log.password.focus();
+    return false;
+  }
+
+}
+</script>
+
+  </head>
+        <body>
+        <div id="dec">
+    <div class="login">
+    <table cellpadding="5">
+                <tr><td align="center"><h1>LOG IN</h1></td></tr>
+                <tr><td><hr></td></tr>
+                <form name="log" method="post" action="car.home.html" onsubmit="return chkFormular()"</form>
+                <tr><td><input type="text" name="username" value="" placeholder="E-Mail"></td></tr>
+                <tr><td><input type="password" name="password" value="" placeholder="Passwort"></td></tr>
+                 <tr><td align="center"><input type="submit" value="LOG IN"></td></tr>
+                 <tr><td><div class="login-help">
+                 <a href="pwforgot.php">Passwort vergessen?</a></div></td></tr>
+        </table>
+                </form>
+                 </div>
+
+
+
+
+  </div>
+        </body>
+</html>
