@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL^E_NOTICE);
 require 'requiresLogin.php';
+include('userheader.php');
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +75,8 @@ $_SESSION['firstname'] = $firstname;
 
      $_SESSION['user']=$user;
 
+
+include('footer.php');
 ?>
         </body>
 </html>
